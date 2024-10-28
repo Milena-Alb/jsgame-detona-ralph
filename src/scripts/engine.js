@@ -25,8 +25,15 @@ function countDown() {
     clearInterval(state.actions.countDownTimerId);
     clearInterval(state.actions.timerId);
     alert("Game Over! O seu resultado foi: " + state.values.result);
+  } 
+  else if (state.values.curretTime === 30) {  
+    state.values.gameVelocity = 500;  
+    
+    clearInterval(state.actions.timerId);  
+    state.actions.timerId = setInterval(randomSquare, state.values.gameVelocity);  
   }
 }
+
 
 function playSound(audioName) {
   let audio = new Audio(`./src/audios/${audioName}.m4a`);
